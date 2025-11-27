@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|d:\\proj\\prima\\tekla\\pros\\teklaplugins\\framedrawingplugin\\framedrawingplugin\\actions\\framedrawingpluginaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|solutionrelative:framedrawingplugin\\actions\\framedrawingpluginaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|d:\\proj\\prima\\tekla\\pros\\teklaplugins\\framedrawingplugin\\framedrawingplugin\\actions\\framedrawingpluginaction.configviewfront.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|solutionrelative:framedrawingplugin\\actions\\framedrawingpluginaction.configviewfront.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|d:\\proj\\prima\\tekla\\pros\\teklaplugins\\framedrawingplugin\\framedrawingplugin\\actions\\framedrawingpluginaction.configviewtop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|solutionrelative:framedrawingplugin\\actions\\framedrawingpluginaction.configviewtop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|d:\\proj\\prima\\tekla\\pros\\teklaplugins\\framedrawingplugin\\framedrawingplugin\\framedrawingplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A5024F-583B-4F18-80F5-D6E409CD4C87}|FrameDrawingPlugin\\FrameDrawingPlugin.csproj|solutionrelative:framedrawingplugin\\framedrawingplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DC2390E-8985-4CB1-BBDD-5602A6C3EEE4}|ConfigViewPlugin\\ConfigViewPlugin.csproj|d:\\proj\\prima\\tekla\\pros\\teklaplugins\\framedrawingplugin\\configviewplugin\\configviewplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DC2390E-8985-4CB1-BBDD-5602A6C3EEE4}|ConfigViewPlugin\\ConfigViewPlugin.csproj|solutionrelative:configviewplugin\\configviewplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrameDrawingPlugin.cs",
+              "DocumentMoniker": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\FrameDrawingPlugin.cs",
+              "RelativeDocumentMoniker": "FrameDrawingPlugin\\FrameDrawingPlugin.cs",
+              "ToolTip": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\FrameDrawingPlugin.cs",
+              "RelativeToolTip": "FrameDrawingPlugin\\FrameDrawingPlugin.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T10:19:29.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrameDrawingPluginAction.cs",
+              "DocumentMoniker": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.cs",
+              "RelativeDocumentMoniker": "FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.cs",
+              "ToolTip": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.cs",
+              "RelativeToolTip": "FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAwDUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T10:19:08.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrameDrawingPluginAction.ConfigViewFront.cs",
+              "DocumentMoniker": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewFront.cs",
+              "RelativeDocumentMoniker": "FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewFront.cs",
+              "ToolTip": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewFront.cs",
+              "RelativeToolTip": "FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewFront.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAawBIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T10:18:48.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrameDrawingPluginAction.ConfigViewTop.cs",
+              "DocumentMoniker": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewTop.cs",
+              "RelativeDocumentMoniker": "FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewTop.cs",
+              "ToolTip": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewTop.cs",
+              "RelativeToolTip": "FrameDrawingPlugin\\Actions\\FrameDrawingPluginAction.ConfigViewTop.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T10:17:33.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConfigViewPlugin.cs",
+              "DocumentMoniker": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\ConfigViewPlugin\\ConfigViewPlugin.cs",
+              "RelativeDocumentMoniker": "ConfigViewPlugin\\ConfigViewPlugin.cs",
+              "ToolTip": "D:\\proj\\prima\\Tekla\\pros\\TeklaPlugins\\FrameDrawingPlugin\\ConfigViewPlugin\\ConfigViewPlugin.cs",
+              "RelativeToolTip": "ConfigViewPlugin\\ConfigViewPlugin.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwE8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T08:01:04.066Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

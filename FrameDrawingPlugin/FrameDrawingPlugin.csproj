@@ -152,7 +152,6 @@
     </Compile>
     <Compile Include="Utils\AssemblyProperties.cs" />
     <Compile Include="Utils\AssemblyUtils.cs" />
-    <Compile Include="Utils\Class1.cs" />
     <Compile Include="Utils\Compares\ComparePoint.cs" />
     <Compile Include="Utils\DimUtils.cs" />
     <Compile Include="Utils\GeometryUtils.cs" />
@@ -162,6 +161,7 @@
     <Compile Include="Utils\Model\TagCustom.cs" />
     <Compile Include="Utils\Model\VectorCustom.cs" />
     <Compile Include="Utils\PartUtils.cs" />
+    <Compile Include="Utils\SectionViewutils.cs" />
     <Compile Include="Utils\StringDefine.cs" />
     <Compile Include="Utils\TagUtils.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -161,6 +161,7 @@
     <Compile Include="Utils\Messages\IO.cs" />
     <Compile Include="Utils\Model\TagCustom.cs" />
     <Compile Include="Utils\PartUtils.cs" />
+    <Compile Include="Utils\SectionViewutils.cs" />
     <Compile Include="Utils\StringDefine.cs" />
     <Compile Include="Utils\Model\VectorCustom.cs" />
     <Compile Include="Utils\TagUtils.cs" />

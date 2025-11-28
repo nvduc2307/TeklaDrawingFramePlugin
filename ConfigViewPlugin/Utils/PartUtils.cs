@@ -1,8 +1,10 @@
 ﻿using ConfigViewPlugin.Utils.Model;
 using System.Collections.Generic;
-using static Tekla.Structures.Model.ContourPlate;
+using Tekla.Structures.Geometry3d;
 using tsd = Tekla.Structures.Drawing;
 using tsm = Tekla.Structures.Model;
+using tss = Tekla.Structures.Solid;
+using tsg = Tekla.Structures.Geometry3d;
 namespace ConfigViewPlugin.Utils
 {
     public static class PartUtils
@@ -87,6 +89,48 @@ namespace ConfigViewPlugin.Utils
                 }
             }
             return result;
+        }
+        public static List<Point> GetPointsIntersect(this tsm.Part part, GeometricPlane sectionPlane)
+        {
+            var result = new List<Point>();
+            var solid = part.GetSolid();
+            var edgeEnum = solid.GetEdgeEnumerator();
+            while (edgeEnum.MoveNext())
+            {
+                var obj = edgeEnum.Current;
+                if (obj is tss.Edge edge)
+                {
+                    var seg = new LineSegment(edge.StartPoint, edge.EndPoint);
+                    var intersection = Intersection.LineSegmentToPlane(seg, sectionPlane);
+                    result.Add(intersection);
+                }
+            }
+            return result;
+        }
+        public static bool isExistInView(this tsm.Part part, tsd.View view)
+        {
+            var solid = part.GetSolid();
+            var edgeEnum = solid.GetEdgeEnumerator();
+            var sectionPlane = new tsg.GeometricPlane(view.Origin, VectorCustom.BaseZ);
+            while (edgeEnum.MoveNext())
+            {
+                var obj = edgeEnum.Current;
+                if (obj is tss.Edge edge)
+                {
+                    var seg = new LineSegment(edge.StartPoint, edge.EndPoint);
+                    var intersection = Intersection.LineSegmentToPlane(seg, sectionPlane);
+                    if (intersection == null)
+                        continue;
+                    if (double.IsNaN(intersection.X))
+                        continue;
+                    if (double.IsNaN(intersection.Y))
+                        continue;
+                    if (double.IsNaN(intersection.Z))
+                        continue;
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

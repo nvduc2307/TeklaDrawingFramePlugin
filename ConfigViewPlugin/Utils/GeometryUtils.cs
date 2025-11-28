@@ -19,10 +19,13 @@ namespace ConfigViewPlugin.Utils
         }
         public static tsg.Vector Vector(this tsg.Point p1)
         {
+            if (p1 == null) return null;
             return new tsg.Vector(p1.X, p1.Y, p1.Z);
         }
         public static tsg.Vector Vector(this tsg.Point p1, tsg.Point p2)
         {
+            if (p1 == null) return null;
+            if (p2 == null) return null;
             var dis = p1.DistancePToP(p2);
             var x = (p2.X - p1.X) / dis;
             var y = (p2.Y - p1.Y) / dis;
@@ -46,6 +49,8 @@ namespace ConfigViewPlugin.Utils
         }
         public static double DistancePToP(this tsg.Point p1, tsg.Point p2)
         {
+            if (p1 == null) return -1;
+            if (p2 == null) return -1;
             return Math.Sqrt(Math.Pow((p2.X - p1.X), 2) + Math.Pow((p2.Y - p1.Y), 2) + Math.Pow((p2.Z - p1.Z), 2));
         }
         public static double Distance(this tsg.Point p, FaceCustom faceCad)

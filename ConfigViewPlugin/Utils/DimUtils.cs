@@ -20,6 +20,7 @@ namespace ConfigViewPlugin.Utils
             double distance,
             bool isRayFace = false)
         {
+            if (!ps.Any()) return;
             ps = ps
                 .Distinct(new ComparePoint())
                 .OrderBy(x => x.Vector().Dot(vtDimDir))
@@ -64,13 +65,9 @@ namespace ConfigViewPlugin.Utils
                 {
                     var edge = edgeEnumerator.Current as tss.Edge;
                     if (edge == null) continue;
-                    var dis = edge.StartPoint.DistancePToP(edge.EndPoint);
-                    var vtCheck = new tsg.Vector(
-                        Math.Round(edge.EndPoint.X / dis - edge.StartPoint.X / dis, 0),
-                        Math.Round(edge.EndPoint.Y / dis - edge.StartPoint.Y / dis, 0),
-                        Math.Round(edge.EndPoint.Z / dis - edge.StartPoint.Z / dis, 0));
-
-                    if (Math.Abs(vtCheck.Dot(vt)) == 1)
+                    var vtCheck = edge.StartPoint.Vector(edge.EndPoint);
+                    var dot = Math.Round(Math.Abs(vtCheck.Dot(vt)), 0);
+                    if (dot == 1)
                     {
                         if (edge.EndPoint.Vector().Dot(vt) >= edge.StartPoint.Vector().Dot(vt))
                             results.Add(edge.EndPoint);
@@ -79,7 +76,38 @@ namespace ConfigViewPlugin.Utils
                     }
                 }
             }
-            return results.Distinct(new ComparePoint()).ToList();
+            results = results.Distinct(new ComparePoint()).ToList();
+            return results;
+        }
+
+        public static List<tsg.Point> GetPointDim(
+            this List<tsd.Part> partDims,
+            tsd.View view,
+            tsm.Model model, 
+            tsg.Vector vtDim)
+        {
+            var vtDimNor = vtDim.Cross(VectorCustom.BaseZ);
+            
+            var fSection = new tsg.GeometricPlane(view.Origin, VectorCustom.BaseZ);
+            var results = new List<tsg.Point>();
+            foreach (var part in partDims)
+            {
+                var mPart = part.GetMObjFormDObj(model);
+                var ps = mPart.GetPointsIntersect(fSection);
+                results.AddRange(ps);
+            }
+            results = results
+                .Where(x => x != null).ToList()
+                .OrderBy(x=>x.Vector().Dot(vtDimNor))
+                .ToList();
+            var fDim = new FaceCustom(vtDimNor, results.LastOrDefault());
+            return results
+                .Where(x=>x!=null)
+                .Select(x=>x.RayPointToFace(fDim.Normal, fDim))
+                .Distinct(new ComparePoint())
+                .OrderBy(x=>x.Vector().Dot(vtDim))
+                .Where(x => !(double.IsNaN(x.X)|| double.IsNaN(x.Y)|| double.IsNaN(x.Z)))
+                .ToList();
         }
     }
 }

@@ -52,26 +52,10 @@ namespace FrameDrawingPlugin.Actions
                     switch (viewType)
                     {
                         case tsd.View.ViewTypes.FrontView:
-                            v.Origin = origin + VectorCustom.BaseY * 50;
-
-                            tsg.Point p1 = new tsg.Point(100, 100);
-                            tsg.Point p2 = new tsg.Point(300, 100);
-
-                            var viewAttr = new tsd.View.ViewAttributes();
-                            viewAttr.LoadAttributes(StringDefine.Template_View_Section);
-                            var sectionMarkAttr = new tsd.SectionMarkBase.SectionMarkAttributes();
-                            sectionMarkAttr.LoadAttributes(StringDefine.SectionMarkStyle);
-                            tsd.View
-                                .CreateSectionView(v, p1, p2,
-                                p1.MidPoint(p2),
-                                100, 100, viewAttr, sectionMarkAttr,
-                                out tsd.View sectionView,
-                                out SectionMark sectionMark);
-                            // Điểm đặt Section View
-                            tsg.Point viewPlacement = new tsg.Point(150, 300);
+                            ConfigViewFront(v);
                             break;
                         case tsd.View.ViewTypes.TopView:
-                            v.Origin = origin + VectorCustom.BaseY * 100;
+                            ConfigViewTop(v);
                             break;
                     }
                     v.Modify();

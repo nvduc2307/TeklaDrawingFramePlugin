@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrameDrawingPlugin.Utils.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace FrameDrawingPlugin.Actions
     {
         public void ConfigViewTop(tsd.View view)
         {
+            //posigin view top
+            view.Origin += VectorCustom.BaseY * 100;
         }
     }
 }

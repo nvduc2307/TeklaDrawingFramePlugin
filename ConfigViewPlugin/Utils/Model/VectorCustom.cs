@@ -9,8 +9,8 @@ namespace ConfigViewPlugin.Utils.Model
 {
     public class VectorCustom
     {
-        public static tsg.Vector BaseX = new tsg.Vector(1, 0, 0);
-        public static tsg.Vector BaseY = new tsg.Vector(0, 1, 0);
-        public static tsg.Vector BaseZ = new tsg.Vector(0, 0, 1);
+        public static tsg.Vector BaseX { get => new tsg.Vector(1, 0, 0); }
+        public static tsg.Vector BaseY { get => new tsg.Vector(0, 1, 0); }
+        public static tsg.Vector BaseZ { get => new tsg.Vector(0, 0, 1); }
     }
 }

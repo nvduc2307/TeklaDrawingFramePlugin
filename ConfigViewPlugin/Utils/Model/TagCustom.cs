@@ -37,6 +37,9 @@ namespace ConfigViewPlugin.Utils.Model
                 case MarkType.PANEL_NAME:
                     mark.Attributes.Content.Add(new tsd.UserDefinedElement(ExtUDA.PANEL_NAME));
                     break;
+                case MarkType.PART_POSITION:
+                    mark.Attributes.Content.Add(new tsd.UserDefinedElement(ExtUDA.PART_POSITION));
+                    break;
             }
         }
 
@@ -123,6 +126,7 @@ namespace ConfigViewPlugin.Utils.Model
     {
         PROFILE,
         PANEL_NAME,
-        TEXT
+        TEXT,
+        PART_POSITION
     }
 }

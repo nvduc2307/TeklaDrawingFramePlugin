@@ -81,6 +81,10 @@ namespace ConfigViewPlugin
                         DimViewVerticalTop(view);
                         TagPartViewTop(view);
                         break;
+                    case tsd.View.ViewTypes.SectionView:
+                        DimSection(view);
+                        TagSection(view);
+                        break;
                 }
 
                 //========================
@@ -127,10 +131,15 @@ namespace ConfigViewPlugin
             var psdim = partDims
                 .GetPointDim(_model, vty)
                 .OrderBy(x=>x.Vector().Dot(vtx))
+                .Where(x=>x!= null)
                 .ToList();
             view.InstallDim(psdim, vtx, vty, _distanceDim * 2.5, true);
+            var psDimTotal =
+                new List<tsg.Point>() { psdim.FirstOrDefault(), psdim.LastOrDefault() }
+                .Where(x=>x != null)
+                .ToList();
             view.InstallDim(
-                new List<tsg.Point>() { psdim.FirstOrDefault(), psdim.LastOrDefault() }, 
+                psDimTotal, 
                 vtx, vty, _distanceDim * 3.5);
         }
         private void TagPartViewFront(tsd.View view)
@@ -315,6 +324,121 @@ namespace ConfigViewPlugin
                 break;
             }
             #endregion
+        }
+        private void DimSection(tsd.View view)
+        {
+            var mainPart1 = view.GetDrawingPartElements(_model, StringDefine.MainPart1);
+            var mainPart2 = view.GetDrawingPartElements(_model, StringDefine.MainPart2);
+            var web = view.GetDrawingPartElements(_model, StringDefine.Web);
+            var xagos = view.GetDrawingPartElements(_model, StringDefine.XG);
+            var giaCuong1 = view.GetDrawingPartElements(_model, StringDefine.GiaCuong1);
+            var partDims = xagos
+                .Concat(web)
+                .Concat(mainPart2)
+                .Concat(mainPart1)
+                .ToList();
+            var psdimX = partDims.GetPointDim(view, _model, VectorCustom.BaseX);
+            view.InstallDim(psdimX, 
+                VectorCustom.BaseX, 
+                VectorCustom.BaseY.Reverse(), 
+                _distanceDim);
+            view.InstallDim(
+                new List<tsg.Point>() 
+                { psdimX .FirstOrDefault(), psdimX .LastOrDefault()},
+                VectorCustom.BaseX,
+                VectorCustom.BaseY.Reverse(),
+                2 * _distanceDim);
+            var psdimY = partDims.GetPointDim(view, _model, VectorCustom.BaseY);
+            view.InstallDim(psdimY,
+                VectorCustom.BaseY,
+                VectorCustom.BaseX,
+                _distanceDim);
+            view.InstallDim(
+                new List<tsg.Point>()
+                {
+                    psdimY.FirstOrDefault(),
+                    psdimY.LastOrDefault(),
+                },
+                VectorCustom.BaseY,
+                VectorCustom.BaseX,
+                2*_distanceDim);
+        }
+        private void TagSection(tsd.View view)
+        {
+            var mainPart1 = view.GetDrawingPartElements(_model, StringDefine.MainPart1)
+            .Where(x =>
+            {
+                var mPart = x.GetMObjFormDObj(_model);
+                return mPart.isExistInView(view);
+            });
+            var mainPart2 = view.GetDrawingPartElements(_model, StringDefine.MainPart2)
+                .Where(x =>
+                {
+                    var mPart = x.GetMObjFormDObj(_model);
+                    return mPart.isExistInView(view);
+                });
+            var web = view.GetDrawingPartElements(_model, StringDefine.Web)
+                .Where(x =>
+                {
+                    var mPart = x.GetMObjFormDObj(_model);
+                    return mPart.isExistInView(view);
+                });
+            var xagos = view.GetDrawingPartElements(_model, StringDefine.XG)
+                .Where(x =>
+                {
+                    var mPart = x.GetMObjFormDObj(_model);
+                    return mPart.isExistInView(view);
+                });
+            var giaCuong1 = view.GetDrawingPartElements(_model, StringDefine.GiaCuong1)
+                .Where(x =>
+                {
+                    var mPart = x.GetMObjFormDObj(_model);
+                    return mPart.isExistInView(view);
+                });
+            foreach (var xag in xagos)
+            {
+                var mPart = xag.GetMObjFormDObj(_model);
+                var solid = mPart.GetSolid();
+                var mid = solid.MinimumPoint.MidPoint(solid.MaximumPoint);
+                var position =
+                    mid
+                    + VectorCustom.BaseY * 50
+                    - VectorCustom.BaseX * 200;
+                xag.CreatePartMark(position, StringDefine.MarkStyle);
+            }
+            foreach (var part in mainPart1)
+            {
+                var mPart = part.GetMObjFormDObj(_model);
+                var solid = mPart.GetSolid();
+                var mid = solid.MinimumPoint.MidPoint(solid.MaximumPoint);
+                var position =
+                    mid
+                    + VectorCustom.BaseY * 50
+                    - VectorCustom.BaseX * 200;
+                part.CreatePartMark(position, StringDefine.MarkStyle);
+            }
+            foreach (var part in mainPart2)
+            {
+                var mPart = part.GetMObjFormDObj(_model);
+                var solid = mPart.GetSolid();
+                var mid = solid.MinimumPoint.MidPoint(solid.MaximumPoint);
+                var position =
+                    mid
+                    + VectorCustom.BaseY * 50
+                    - VectorCustom.BaseX * 200;
+                part.CreatePartMark(position, StringDefine.MarkStyle);
+            }
+            foreach (var part in giaCuong1)
+            {
+                var mPart = part.GetMObjFormDObj(_model);
+                var solid = mPart.GetSolid();
+                var mid = solid.MinimumPoint.MidPoint(solid.MaximumPoint);
+                var position =
+                    mid
+                    + VectorCustom.BaseY * 50
+                    - VectorCustom.BaseX * 200;
+                part.CreatePartMark(position, StringDefine.MarkStyle);
+            }
         }
     }
 }
